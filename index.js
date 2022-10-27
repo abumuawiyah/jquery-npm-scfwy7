@@ -1,11 +1,13 @@
-import jQuery from 'jquery';
+import $ from 'jquery';
 
-
-console.log( jQuery );
-
-
-// jQuery Version
 const appDiv = document.getElementById('app');
-const version = jQuery().jquery;
-
+const version = $().jquery;
 appDiv.innerHTML = `<h3>JQuery Version - ${version}</h3>`;
+
+$(document).ready(function () {
+  const $style = $("<style> .test:before {content: '&'} </style>");
+  document.body.append($style[0]);
+  const $test = $('.test');
+  const beforeContent = window.getComputedStyle($test[0], ':before').content;
+  console.log(beforeContent);
+});
